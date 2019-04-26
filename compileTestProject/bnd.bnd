@@ -1,0 +1,4 @@
+Bundle-Name: compileTestProject
+Bundle-SymbolicName: com.liferay.university.test.compile
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.university.test.compile.constants
