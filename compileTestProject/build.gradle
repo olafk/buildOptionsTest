@@ -1,10 +1,10 @@
 dependencies {
-	compile group: "com.liferay.portal", name: "com.liferay.portal.kernel"
-	compile group: "com.liferay.portal", name: "com.liferay.util.taglib"
+    compile group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+    compile group: "com.liferay.portal", name: "com.liferay.util.taglib"
     compile group: "com.liferay", name: "com.liferay.journal.api"
-	compile group: "javax.portlet", name: "portlet-api"
-	compile group: "javax.servlet", name: "javax.servlet-api"
-	compile group: "jstl", name: "jstl"
-	compile group: "org.osgi", name: "osgi.cmpn"
+    compile group: "javax.portlet", name: "portlet-api"
+    compile group: "javax.servlet", name: "javax.servlet-api"
+    compile group: "jstl", name: "jstl"
+    compile group: "org.osgi", name: "osgi.cmpn"
     compile group: "com.itextpdf", name: "itextpdf", version: "5.5.13"
 }

@@ -24,46 +24,36 @@ import org.osgi.service.component.annotations.Reference;
 /**
  * @author olaf
  */
-@Component(
-	immediate = true,
-	property = {
-		"com.liferay.portlet.display-category=category.sample",
-		"com.liferay.portlet.instanceable=true",
-		"javax.portlet.init-param.template-path=/",
-		"javax.portlet.init-param.view-template=/view.jsp",
-		"javax.portlet.name=" + CompilePortletKeys.Compile,
-		"javax.portlet.resource-bundle=content.Language",
-		"javax.portlet.security-role-ref=power-user,user"
-	},
-	service = Portlet.class
-)
+@Component(immediate = true, property = { "com.liferay.portlet.display-category=category.sample",
+        "com.liferay.portlet.instanceable=true", "javax.portlet.init-param.template-path=/",
+        "javax.portlet.init-param.view-template=/view.jsp", "javax.portlet.name=" + CompilePortletKeys.Compile,
+        "javax.portlet.resource-bundle=content.Language",
+        "javax.portlet.security-role-ref=power-user,user" }, service = Portlet.class)
 public class CompilePortlet extends MVCPortlet {
-	@Override
-	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
-			throws IOException, PortletException {
+    @Override
+    public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+            throws IOException, PortletException {
 
-		resourceResponse.setContentType("application/pdf");
-		Document document = new Document();
-		try {
-			ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
-			long groupId = themeDisplay.getScopeGroupId();
-			int articlesCount = jals.getArticlesCount(groupId);
+        resourceResponse.setContentType("application/pdf");
+        Document document = new Document();
+        try {
+            ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
+            long groupId = themeDisplay.getScopeGroupId();
+            int articlesCount = jals.getArticlesCount(groupId);
 
-			PdfWriter.getInstance(
-			    document, resourceResponse.getPortletOutputStream());
-			document.open();
-			document.add(new Paragraph("Hello World!\n"));
-			document.add(new Paragraph("generated at " + new Date().toString()));
-			document.add(new Paragraph("from compile portlet"));
-			document.add(new Paragraph("with " + articlesCount + " articles in this site"));
-			document.close();
+            PdfWriter.getInstance(document, resourceResponse.getPortletOutputStream());
+            document.open();
+            document.add(new Paragraph("Hello World!\n"));
+            document.add(new Paragraph("generated at " + new Date().toString()));
+            document.add(new Paragraph("from compile portlet"));
+            document.add(new Paragraph("with " + articlesCount + " articles in this site"));
+            document.close();
 
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		}
-	}
-	
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@Reference
-	private JournalArticleLocalService jals;
+    @Reference
+    private JournalArticleLocalService jals;
 }

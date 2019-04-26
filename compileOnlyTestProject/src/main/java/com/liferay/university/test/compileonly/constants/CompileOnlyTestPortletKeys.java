@@ -5,6 +5,6 @@ package com.liferay.university.test.compileonly.constants;
  */
 public class CompileOnlyTestPortletKeys {
 
-	public static final String CompileOnlyTest = "compileonlytest";
+    public static final String CompileOnlyTest = "compileonlytest";
 
 }

@@ -5,6 +5,6 @@ package com.liferay.university.test.compile.constants;
  */
 public class CompilePortletKeys {
 
-	public static final String Compile = "compile";
+    public static final String Compile = "compile";
 
 }
